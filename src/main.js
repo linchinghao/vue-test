@@ -1,8 +1,19 @@
 import Vue from 'vue'
-import App from './App.vue'
+import VueRouter from 'vue-router'
+import routes from './routes'
+import App from './App'
+import VueCorppa from 'vue-croppa'
 
 Vue.config.productionTip = false
 
+Vue.use(VueRouter)
+Vue.use(VueCorppa)
+
+const router = new VueRouter({
+  routes: routes()
+})
+
 new Vue({
-  render: h => h(App),
+  router,
+  render: (h) => h(App),
 }).$mount('#app')
